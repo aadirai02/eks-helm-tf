@@ -106,3 +106,15 @@ resource "aws_eks_addon" "ebs-csi" {
     "terraform" = "true"
   }
 }
+
+# Add the null_resource block to trigger the local-exec provisioner
+resource "null_resource" "update_kubeconfig" {
+  # Trigger the provisioner when the EKS cluster is created
+  depends_on = [module.eks]
+
+  # Execute the command to update kubeconfig after EKS cluster creation
+  provisioner "local-exec" {
+    command = "aws eks update-kubeconfig --region ${var.region} --name ${module.eks.cluster_name}"
+  }
+}
+
