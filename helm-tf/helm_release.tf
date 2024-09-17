@@ -15,7 +15,7 @@ provider "helm" {
 
 resource "helm_release" "flask-chart" {
   name       = "flask-chart"
-  repository = "https://aadirai02.github.io/bizongo-chart/"
+  repository = "https://aadirai02.github.io/helm-chart/"
   chart      = "flask-chart"
 
   values = [
@@ -25,7 +25,7 @@ resource "helm_release" "flask-chart" {
 
 resource "helm_release" "mongo-chart" {
   name       = "mongo-chart"
-  repository = "https://aadirai02.github.io/bizongo-chart/"
+  repository = "https://aadirai02.github.io/helm-chart/"
   chart      = "mongo-chart"
 
   values = [

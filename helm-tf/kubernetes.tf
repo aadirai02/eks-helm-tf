@@ -8,7 +8,7 @@ provider "aws" {
 data "terraform_remote_state" "eks" {
   backend = "local"
   config = {
-    path = "../bizongo-eks-tf/terraform.tfstate"
+    path = "../eks-tf/terraform.tfstate"
   }
 }
 
